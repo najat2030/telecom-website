@@ -1,0 +1,57 @@
+/* styles.css - تصميم بسيط ومتجاوب (RTL) */
+:root{
+  --accent:#0b5db8;
+  --dark:#012a4a;
+  --muted:#666;
+  --container:1100px;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{margin:0;color:#111;background:#fff;line-height:1.6}
+.container{max-width:var(--container);margin:0 auto;padding:20px}
+
+.site-header{background:linear-gradient(90deg,var(--accent),#0a73c2);color:#fff;padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;padding:6px}
+.brand h1{margin:0;font-size:20px}
+.tagline{margin:0;font-size:13px;opacity:.9}
+
+.top-nav a{color:#fff;text-decoration:none;margin-left:16px;font-weight:600}
+.top-nav a:hover{text-decoration:underline}
+
+/* Hero */
+.hero{background:#f5f9ff;padding:48px 0;text-align:center}
+.hero h2{margin:0 0 8px;font-size:28px;color:var(--dark)}
+.hero p{margin:0 0 16px;color:var(--muted)}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700}
+
+/* Cards */
+.cards h3{margin-top:28px;margin-bottom:12px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{border:1px solid #e6eef9;padding:16px;border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(6,24,59,0.04)}
+.card h4{margin:0 0 8px}
+
+/* About */
+.about{padding:18px 0;border-top:1px solid #f0f3f7}
+
+/* Contact */
+.contact{padding:18px 0}
+.contact-form{max-width:680px}
+.contact-form label{display:block;margin-bottom:10px;font-weight:600}
+.contact-form input, .contact-form textarea{width:100%;padding:10px;border:1px solid #d6e3f7;border-radius:8px;margin-top:6px}
+.contact-form button{background:var(--dark);color:#fff;border:none;padding:12px 18px;border-radius:8px;cursor:pointer;margin-top:8px}
+.contact-form .note{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* Footer */
+.site-footer{border-top:1px solid #eef5fb;padding:18px 0;background:#fff}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.site-footer a{color:var(--accent);text-decoration:none}
+
+/* Responsive */
+@media(max-width:720px){
+  .header-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .top-nav a{margin-left:8px}
+}
