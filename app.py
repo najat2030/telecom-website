@@ -1,338 +1,203 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Etisalat Telecom",
+    page_title="Etisalat Telecom | Enterprise Solutions",
     page_icon="📡",
     layout="wide"
 )
 
-# ================= CSS =================
+# ================= CSS MORDERN UPGRADE =================
 st.markdown("""
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
 
-* {
-    font-family: 'Cairo', sans-serif;
+:root {
+    --primary: #5b0008;
+    --secondary: #b30018;
+    --light: #fffaf7;
+    --text: #2d3436;
 }
 
-.stApp {
-    background: #fffaf7;
-}
+* { font-family: 'Cairo', sans-serif; }
 
-#MainMenu, footer, header {
-    visibility: hidden;
+.stApp { background-color: var(--light); }
+
+/* Hide Streamlit elements */
+#MainMenu, footer, header { visibility: hidden; }
+
+/* Global Card Style */
+.css-1r6slb0 { /* Target streamlit columns padding */
+    padding: 10px;
 }
 
 /* Navbar */
 .navbar {
-    background: #5b0008;
-    padding: 18px 45px;
-    border-radius: 0 0 24px 24px;
+    background: var(--primary);
+    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
-    box-shadow: 0 8px 25px rgba(91,0,8,0.25);
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 10px 30px rgba(91,0,8,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: 800;
-    color: #fff;
-}
+.logo-text { font-size: 26px; font-weight: 900; color: white; }
 
-.nav-links span {
-    margin-left: 28px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-/* Hero */
-.hero {
-    margin-top: 25px;
-    min-height: 560px;
-    border-radius: 32px;
-    background: linear-gradient(120deg, rgba(91,0,8,0.95), rgba(155,0,18,0.88)),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3');
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(91,0,8,0.9) 0%, rgba(179,0,24,0.8) 100%), 
+                url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 90px 70px;
-    box-shadow: 0 20px 45px rgba(91,0,8,0.25);
-}
-
-.hero h1 {
-    font-size: 58px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 25px;
-}
-
-.hero p {
-    font-size: 23px;
-    max-width: 720px;
-    line-height: 1.8;
-}
-
-.hero-btn {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 16px 36px;
-    background: white;
-    color: #7a0010;
-    border-radius: 50px;
-    font-weight: 800;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Sections */
-.section-title {
-    text-align: center;
-    color: #5b0008;
-    font-size: 38px;
-    font-weight: 800;
-    margin-top: 70px;
-    margin-bottom: 15px;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 18px;
-    margin-bottom: 45px;
-}
-
-/* Cards */
-.card {
-    background: white;
-    border-radius: 26px;
-    padding: 32px;
-    min-height: 260px;
-    box-shadow: 0 12px 30px rgba(91,0,8,0.12);
-    border: 1px solid #f1d7d9;
-}
-
-.card h3 {
-    color: #7a0010;
-    font-size: 24px;
-    font-weight: 800;
-}
-
-.card p {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* About */
-.about-box {
-    background: linear-gradient(120deg, #7a0010, #b30018);
-    color: white;
-    padding: 55px;
-    border-radius: 30px;
-    margin-top: 50px;
-    box-shadow: 0 16px 35px rgba(91,0,8,0.22);
-}
-
-.about-box h2 {
-    font-size: 36px;
-    font-weight: 800;
-}
-
-.about-box p {
-    font-size: 19px;
-    line-height: 1.9;
-}
-
-/* Contact */
-.contact-box {
-    background: white;
-    border: 1px solid #f1d7d9;
-    border-radius: 28px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(91,0,8,0.10);
-}
-
-.contact-btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 14px 30px;
-    background: #7a0010;
-    color: white !important;
+    padding: 100px 8%;
     border-radius: 40px;
-    font-weight: 700;
-    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.hero-section:hover { transform: translateY(-5px); }
+
+.hero-section h1 { font-size: 55px; font-weight: 900; margin-bottom: 20px; }
+
+/* Service Cards */
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    border-bottom: 5px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    border-bottom: 5px solid var(--secondary);
+    box-shadow: 0 25px 50px rgba(91,0,8,0.15);
+}
+
+.icon-box {
+    font-size: 45px;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+div[data-testid="stForm"] {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 /* Floating WhatsApp */
-.whatsapp {
+.float-wa {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #7a0010;
-    color: white !important;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF !important;
+    border-radius: 50px;
     text-align: center;
-    line-height: 64px;
-    font-size: 32px;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    box-shadow: 0 8px 25px rgba(91,0,8,0.35);
-    z-index: 9999;
-}
-
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 70px;
-    color: #7a0010;
-    font-weight: 700;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# ================= NAVBAR =================
+# ================= NAVIGATION =================
 st.markdown("""
 <div class="navbar">
-    <div class="logo">Etisalat Telecom</div>
-    <div class="nav-links">
-        <span>Home</span>
-        <span>Services</span>
-        <span>Solutions</span>
-        <span>About Us</span>
-        <span>Contact</span>
+    <div class="logo-text"><i class="fas fa-satellite-dish"></i> Etisalat Business</div>
+    <div style="color:white; font-weight:600;">
+        <span style="margin-right:20px">الرئيسية</span>
+        <span style="margin-right:20px">خدماتنا</span>
+        <span>اتصل بنا</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ================= HERO =================
 st.markdown("""
-<div class="hero">
-    <h1>Premium Telecom Solutions<br>For Modern Business</h1>
-    <p>
-        Etisalat Telecom provides advanced corporate telecom services, 
-        business connectivity, mobile lines, internet solutions, VSAT satellite services, 
-        and integrated digital infrastructure for enterprises.
-    </p>
-    <a href="#contact" class="hero-btn">Get Started</a>
+<div class="hero-section">
+    <h1>مستقبل الاتصالات بين يديك</h1>
+    <p style="font-size:22px; opacity:0.9;">نقدم حلولاً تكنولوجية متكاملة للشركات لضمان تواصل ذكي وآمن ومستمر</p>
+    <br>
+    <a href="#contact" style="background:white; color:#5b0008; padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:18px;">ابدأ الآن</a>
 </div>
 """, unsafe_allow_html=True)
 
 # ================= SERVICES =================
-st.markdown('<div class="section-title">Our Services</div>', unsafe_allow_html=True)
-st.markdown('<div class="section-subtitle">Integrated telecom and connectivity solutions for your business</div>', unsafe_allow_html=True)
+st.markdown("<br><h2 style='text-align:center; color:#5b0008; font-weight:800;'>خدماتنا الاحترافية</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:#666;'>حلول مصممة خصيصاً لتناسب احتياجات أعمالكم</p><br>", unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
+serv_col1, serv_col2, serv_col3 = st.columns(3)
 
-with col1:
+services = [
+    {"icon": "fa-sim-card", "title": "خطوط الشركات", "desc": "إدارة كاملة لخطوط الموظفين باقات مرنة تناسب حجم استهلاك شركتك."},
+    {"icon": "fa-wifi", "title": "إنترنت الأعمال", "desc": "سرعات فائقة وحلول ربط الفروع (Dedicated Internet) لضمان عدم الانقطاع."},
+    {"icon": "fa-satellite", "title": "خدمات VSAT", "desc": "تغطية الأماكن النائية وحقول العمل عبر الأقمار الصناعية بأحدث التقنيات."}
+]
+
+for i, col in enumerate([serv_col1, serv_col2, serv_col3]):
+    with col:
+        st.markdown(f"""
+        <div class="service-card">
+            <div class="icon-box"><i class="fas {services[i]['icon']}"></i></div>
+            <h3 style="color:#5b0008;">{services[i]['title']}</h3>
+            <p style="color:#666;">{services[i]['desc']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+# ================= INTERACTIVE SECTION =================
+st.markdown("<br><br>", unsafe_allow_html=True)
+col_left, col_right = st.columns([1, 1], gap="large")
+
+with col_left:
     st.markdown("""
-    <div class="card">
-        <h3>Corporate Lines</h3>
-        <p>
-        Managing corporate mobile lines, voice and data bundles, 
-        billing support, tariff optimization, and account operations.
+    <div style="background:var(--primary); color:white; padding:40px; border-radius:30px; height:100%;">
+        <h2 style="color:white;">لماذا تختار اتصالات تليكوم؟</h2>
+        <p style="font-size:18px; line-height:2;">
+            <i class="fas fa-check-circle"></i> دعم فني متخصص على مدار الساعة<br>
+            <i class="fas fa-check-circle"></i> أحدث البنية التحتية في الشرق الأوسط<br>
+            <i class="fas fa-check-circle"></i> حلول مخصصة حسب ميزانية الشركة<br>
+            <i class="fas fa-check-circle"></i> تقارير أداء وتحليل بيانات الاستهلاك
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-with col2:
-    st.markdown("""
-    <div class="card">
-        <h3>Business Internet</h3>
-        <p>
-        Corporate connectivity solutions including fixed internet, 
-        4G/5G business routers, backup lines, and enterprise data services.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col3:
-    st.markdown("""
-    <div class="card">
-        <h3>VSAT & Satellite</h3>
-        <p>
-        Satellite connectivity solutions for remote sites, mines, 
-        desert areas, construction locations, and critical operations.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-col4, col5, col6 = st.columns(3)
-
-with col4:
-    st.markdown("""
-    <div class="card">
-        <h3>Digital Infrastructure</h3>
-        <p>
-        Smart infrastructure, business transformation, networking, 
-        and technology solutions tailored for enterprise operations.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col5:
-    st.markdown("""
-    <div class="card">
-        <h3>Integrated Systems</h3>
-        <p>
-        Surveillance systems, smart monitoring, internal communication, 
-        and integrated technology solutions.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col6:
-    st.markdown("""
-    <div class="card">
-        <h3>Account Management</h3>
-        <p>
-        Dedicated business account management, support follow-up, 
-        billing tracking, and operational coordination.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ================= ABOUT =================
-st.markdown("""
-<div class="about-box">
-    <h2>About Etisalat Telecom</h2>
-    <p>
-        Etisalat Telecom is a business-focused telecom solutions provider, 
-        supporting companies with reliable communication services, enterprise connectivity, 
-        corporate mobile solutions, satellite communication, and digital infrastructure.
-        Our mission is to simplify telecom operations and deliver professional, scalable, 
-        and secure solutions for every business sector.
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-# ================= CONTACT =================
-st.markdown('<div class="section-title" id="contact">Contact Us</div>', unsafe_allow_html=True)
-
-st.markdown("""
-<div class="contact-box">
-    <h2 style="color:#5b0008;">Ready to connect your business?</h2>
-    <p style="color:#555;font-size:18px;">
-        Contact our team today and get a tailored telecom solution for your company.
-    </p>
-    <a class="contact-btn" href="tel:01000000000">Call Us</a>
-    <a class="contact-btn" href="mailto:info@etisalattelecom.net">Email Us</a>
-    <a class="contact-btn" href="https://wa.me/201000000000" target="_blank">WhatsApp</a>
-</div>
-""", unsafe_allow_html=True)
-
-# ================= WHATSAPP FLOAT =================
-st.markdown("""
-<a class="whatsapp" href="https://wa.me/201000000000" target="_blank">☎</a>
-""", unsafe_allow_html=True)
+with col_right:
+    with st.form("contact_form"):
+        st.markdown("<h3 id='contact' style='text-align:center; color:#5b0008;'>اطلب استشارة مجانية</h3>", unsafe_allow_html=True)
+        name = st.text_input("اسم الشركة")
+        email = st.text_input("البريد الإلكتروني")
+        service_type = st.selectbox("نوع الخدمة المطلوبة", ["خطوط موبايل", "إنترنت فايبر", "أقمار صناعية"])
+        msg = st.text_area("رسالتك")
+        submit = st.form_submit_button("إرسال الطلب")
+        if submit:
+            st.success("تم استلام طلبك بنجاح، سيتواصل معك فريقنا قريباً!")
 
 # ================= FOOTER =================
-st.markdown("""
-<div class="footer">
-    Etisalat Telecom © 2026 — Connect The Future
+st.markdown(f"""
+<a href="https://wa.me/20100000000" class="float-wa" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<div style="text-align:center; padding:40px; color:#999;">
+    <hr style="border:0.1px solid #eee;">
+    جميع الحقوق محفوظة لشركة اتصالات تليكوم © 2026
 </div>
 """, unsafe_allow_html=True)
