@@ -126,213 +126,318 @@ else:
 # ================= STYLE =================
 st.markdown(f"""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
 
-html, body, [class*="css"] {{
-    direction:{DIR};
+html {{
+    scroll-behavior: smooth;
+}}
+
+body, .stApp {{
+    direction: {DIR};
 }}
 
 * {{
-    font-family:'Cairo',sans-serif;
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    box-sizing: border-box;
 }}
 
 .stApp {{
-    background:#fff8f6;
+    background: #fff7f5;
 }}
 
 #MainMenu, footer, header {{
-    visibility:hidden;
+    visibility: hidden;
 }}
 
 .block-container {{
-    max-width:1200px;
-    padding-top:20px;
+    max-width: 1250px;
+    padding-top: 25px;
 }}
 
+/* NAVBAR */
 .navbar {{
-    background:#70000d;
-    padding:18px 35px;
-    border-radius:0 0 24px 24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    color:white;
-    box-shadow:0 12px 30px rgba(112,0,13,.2);
+    direction: ltr;
+    background: #d90429;
+    padding: 20px 38px;
+    border-radius: 0 0 28px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 16px 35px rgba(217, 4, 41, .22);
 }}
 
 .logo {{
-    font-size:28px;
-    font-weight:900;
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: .3px;
 }}
 
-.nav-links span {{
-    margin:0 15px;
-    font-weight:700;
+.nav-links {{
+    display: flex;
+    gap: 26px;
+    align-items: center;
 }}
 
+.nav-links a {{
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 17px;
+    font-weight: 800;
+}}
+
+.nav-links a:hover {{
+    color: #ffe2e2 !important;
+}}
+
+/* HERO */
 .hero {{
-    margin-top:25px;
-    min-height:600px;
-    border-radius:35px;
-    padding:80px 60px;
-    color:white;
+    margin-top: 28px;
+    min-height: 620px;
+    border-radius: 38px;
+    padding: 85px 65px;
+    color: white;
     background:
-    linear-gradient(rgba(70,0,8,.85), rgba(140,0,20,.78)),
+    linear-gradient(90deg, rgba(210,0,35,.92), rgba(255,35,60,.78)),
     url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=80');
-
-    background-size:cover;
-    background-position:center;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 25px 55px rgba(217, 4, 41, .24);
 }}
 
 .badge {{
-    display:inline-block;
-    padding:10px 22px;
-    border-radius:40px;
-    background:rgba(255,255,255,.15);
-    margin-bottom:25px;
-    font-weight:700;
+    display: inline-block;
+    background: rgba(255,255,255,.20);
+    border: 1px solid rgba(255,255,255,.45);
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-bottom: 25px;
 }}
 
 .hero h1 {{
-    font-size:62px;
-    font-weight:900;
-    line-height:1.2;
+    font-size: 64px;
+    line-height: 1.18;
+    font-weight: 900;
+    max-width: 850px;
+    margin-bottom: 25px;
+    white-space: pre-line;
 }}
 
 .hero p {{
-    font-size:22px;
-    line-height:1.9;
-    max-width:760px;
+    font-size: 22px;
+    line-height: 1.9;
+    max-width: 780px;
 }}
 
 .btns a {{
-    display:inline-block;
-    margin-top:25px;
-    margin-right:14px;
-    padding:15px 30px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:800;
+    display: inline-block;
+    margin-top: 25px;
+    margin-inline-end: 14px;
+    padding: 16px 34px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    font-weight: 900;
+    font-size: 17px;
 }}
 
 .btn-main {{
-    background:white;
-    color:#70000d;
+    background: white;
+    color: #d90429 !important;
 }}
 
 .btn-outline {{
-    border:2px solid white;
-    color:white;
+    border: 2px solid white;
+    color: white !important;
 }}
 
+/* TITLES */
 .title {{
-    text-align:center;
-    color:#70000d;
-    font-size:40px;
-    font-weight:900;
-    margin-top:70px;
+    text-align: center;
+    color: #d90429;
+    font-size: 44px;
+    font-weight: 900;
+    margin-top: 75px;
 }}
 
 .subtitle {{
-    text-align:center;
-    color:#666;
-    margin-bottom:40px;
+    text-align: center;
+    color: #666;
+    font-size: 19px;
+    margin-bottom: 40px;
 }}
 
+/* CARDS */
 .card {{
-    background:white;
-    border-radius:28px;
-    padding:32px;
-    min-height:270px;
-    border:1px solid #f2d5d8;
-    box-shadow:0 15px 35px rgba(112,0,13,.10);
-    transition:.3s;
+    background: white;
+    border-radius: 30px;
+    padding: 34px;
+    min-height: 280px;
+    border: 1px solid #ffd6dc;
+    box-shadow: 0 16px 38px rgba(217, 4, 41, .10);
+    transition: .25s;
+    text-align: center;
+    margin-bottom: 25px;
 }}
 
 .card:hover {{
-    transform:translateY(-8px);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 55px rgba(217, 4, 41, .18);
 }}
 
 .icon {{
-    font-size:40px;
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 20px auto;
+    background: #d90429;
+    color: white;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
 }}
 
 .card h3 {{
-    color:#70000d;
-    font-size:24px;
-    font-weight:900;
+    color: #d90429;
+    font-size: 25px;
+    font-weight: 900;
 }}
 
 .card p {{
-    color:#555;
-    line-height:1.9;
+    color: #555;
+    line-height: 1.9;
+    font-size: 17px;
 }}
 
+/* OFFER */
 .offer {{
-    margin-top:70px;
-    background:linear-gradient(120deg,#70000d,#b10019);
-    color:white;
-    border-radius:35px;
-    padding:55px;
+    margin-top: 70px;
+    background: linear-gradient(120deg, #d90429, #ff304f);
+    color: white;
+    border-radius: 38px;
+    padding: 58px;
+    box-shadow: 0 22px 48px rgba(217, 4, 41, .25);
 }}
 
 .offer h2 {{
-    font-size:42px;
-    font-weight:900;
+    font-size: 44px;
+    font-weight: 900;
 }}
 
 .offer p {{
-    font-size:20px;
-    line-height:1.9;
+    font-size: 21px;
+    line-height: 1.9;
 }}
 
+/* CONTACT */
 .contact {{
-    background:white;
-    border-radius:30px;
-    padding:45px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(112,0,13,.10);
+    background: white;
+    border-radius: 34px;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 18px 42px rgba(217, 4, 41, .10);
+    border: 1px solid #ffd6dc;
 }}
 
 .contact h2 {{
-    color:#70000d;
-    font-weight:900;
+    color: #d90429;
+    font-weight: 900;
+    font-size: 38px;
 }}
 
-.contact a {{
-    display:inline-block;
-    margin:10px;
-    padding:15px 28px;
-    background:#70000d;
-    color:white!important;
-    text-decoration:none;
-    border-radius:50px;
-    font-weight:800;
+.contact p {{
+    color: #666;
+    font-size: 18px;
+    line-height: 1.9;
 }}
 
+.contact-buttons {{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}}
+
+.contact-buttons a {{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 170px;
+    padding: 16px 30px;
+    background: #d90429;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 17px;
+    box-shadow: 0 12px 26px rgba(217, 4, 41, .25);
+}}
+
+.contact-buttons a:hover {{
+    background: #ff304f;
+}}
+
+/* FLOATING WHATSAPP */
 .whatsapp {{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:72px;
-    height:72px;
-    border-radius:50%;
-    background:#70000d;
-    color:white!important;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    font-size:32px;
-    box-shadow:0 12px 30px rgba(112,0,13,.3);
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #d90429;
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    font-size: 32px;
+    box-shadow: 0 14px 32px rgba(217, 4, 41, .35);
+    z-index: 99999;
 }}
 
 .footer {{
-    text-align:center;
-    padding:30px;
-    color:#70000d;
-    font-weight:800;
-    margin-top:60px;
+    text-align: center;
+    padding: 30px;
+    color: #d90429;
+    font-weight: 900;
+    margin-top: 60px;
+}}
+
+/* MOBILE */
+@media(max-width: 850px) {{
+    .navbar {{
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }}
+
+    .nav-links {{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }}
+
+    .hero {{
+        padding: 50px 30px;
+        min-height: 520px;
+    }}
+
+    .hero h1 {{
+        font-size: 40px;
+    }}
+
+    .hero p {{
+        font-size: 18px;
+    }}
+
+    .title {{
+        font-size: 34px;
+    }}
 }}
 </style>
 """, unsafe_allow_html=True)
@@ -343,40 +448,38 @@ st.markdown(f"""
     <div class="logo">Etisalat Telecom</div>
 
     <div class="nav-links">
-        <span>{nav_home}</span>
-        <span>{nav_services}</span>
-        <span>{nav_solutions}</span>
-        <span>{nav_about}</span>
-        <span>{nav_contact}</span>
+        <a href="#home">{nav_home}</a>
+        <a href="#services">{nav_services}</a>
+        <a href="#solutions">{nav_solutions}</a>
+        <a href="#about">{nav_about}</a>
+        <a href="#contact">{nav_contact}</a>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ================= HERO =================
 st.markdown(f"""
-<div class="hero">
+<div class="hero" id="home">
 
-<div class="badge">{hero_badge}</div>
+    <div class="badge">{hero_badge}</div>
 
-<h1>{hero_title}</h1>
+    <h1>{hero_title}</h1>
 
-<p>{hero_desc}</p>
+    <p>{hero_desc}</p>
 
-<div class="btns">
-    <a class="btn-main" href="https://wa.me/201000000000" target="_blank">{btn_offer}</a>
-
-    <a class="btn-outline" href="#">{btn_services}</a>
-</div>
+    <div class="btns">
+        <a class="btn-main" href="https://wa.me/201000000000" target="_blank">{btn_offer}</a>
+        <a class="btn-outline" href="#services">{btn_services}</a>
+    </div>
 
 </div>
 """, unsafe_allow_html=True)
 
 # ================= SERVICES =================
-st.markdown(f'<div class="title">{services_title}</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="title" id="services">{services_title}</div>', unsafe_allow_html=True)
 st.markdown(f'<div class="subtitle">{services_sub}</div>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
-
 cols = [col1, col2, col3]
 
 for i, card in enumerate(cards[:3]):
@@ -390,7 +493,6 @@ for i, card in enumerate(cards[:3]):
         """, unsafe_allow_html=True)
 
 col4, col5, col6 = st.columns(3)
-
 cols2 = [col4, col5, col6]
 
 for i, card in enumerate(cards[3:]):
@@ -405,47 +507,41 @@ for i, card in enumerate(cards[3:]):
 
 # ================= SOLUTIONS =================
 st.markdown(f"""
-<div class="offer">
+<div class="offer" id="solutions">
 
-<h2>{solutions_title}</h2>
+    <h2>{solutions_title}</h2>
 
-<p>{solutions_desc}</p>
+    <p>{solutions_desc}</p>
 
 </div>
 """, unsafe_allow_html=True)
 
 # ================= ABOUT =================
-st.markdown(f'<div class="title">{about_title}</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="title" id="about">{about_title}</div>', unsafe_allow_html=True)
 
 st.markdown(f"""
 <div class="contact">
-<p style="font-size:20px;line-height:1.9;color:#555;">
-{about_desc}
-</p>
+    <p>
+        {about_desc}
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
 # ================= CONTACT =================
-st.markdown(f'<div class="title">{nav_contact}</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="title" id="contact">{nav_contact}</div>', unsafe_allow_html=True)
 
 st.markdown(f"""
 <div class="contact">
 
-<h2>{contact_title}</h2>
+    <h2>{contact_title}</h2>
 
-<p style="color:#666;font-size:18px;">
-{contact_desc}
-</p>
+    <p>{contact_desc}</p>
 
-<a href="tel:01000000000">{call_btn}</a>
-
-<a href="https://wa.me/201000000000" target="_blank">
-{whatsapp_btn}
-</a>
-
-<a href="mailto:info@etisalattelecom.net">
-{email_btn}
-</a>
+    <div class="contact-buttons">
+        <a href="tel:01000000000">☎ {call_btn}</a>
+        <a href="https://wa.me/201000000000" target="_blank">💬 {whatsapp_btn}</a>
+        <a href="mailto:info@etisalattelecom.net">✉ {email_btn}</a>
+    </div>
 
 </div>
 """, unsafe_allow_html=True)
