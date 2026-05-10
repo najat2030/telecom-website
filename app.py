@@ -506,16 +506,24 @@ html(f"""
     <h2>{contact_title}</h2>
     <p>{contact_desc}</p>
     <div class="contact-buttons">
-        <a href="tel:01000000000">☎ {call_btn}</a>
-        <a href="https://wa.me/201000000000" target="_blank">💬 {whatsapp_btn}</a>
-        <a href="mailto:info@etisalattelecom.net">✉ {email_btn}</a>
+       <a href="tel:01121800500">☎ {call_btn}</a>
+
+<a href="https://wa.me/201008884171" target="_blank">
+💬 {whatsapp_btn}
+</a>
+
+<a href="mailto:etisalatc85@yahoo.com">
+✉ {email_btn}
+</a>
     </div>
 </section>
 """)
 
 # ================= FLOAT =================
 html("""
-<a class="whatsapp" href="https://wa.me/201000000000" target="_blank">☎</a>
+<a class="whatsapp" href="https://wa.me/201008884171" target="_blank">
+☎
+</a>
 """)
 
 # ================= FOOTER =================
